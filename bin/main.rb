@@ -31,12 +31,41 @@ while playing
     end
 
     flag = false
+    wrong_move = false
+    player_turn = false
+    winner = false
     while flag == false
       puts ' 1 | 2 | 3 '
       puts ' --------- '
       puts ' 4 | 5 | 6 '
       puts ' --------- '
       puts ' 7 | 8 | 9 '
+
+      if wrong_move == true
+        puts "Invalid move! Repeat your movement #{user_name}"
+      end
+
+      player_turn = true
+
+      if player_turn == true
+        puts ''
+        puts "It's your turn #{user_name}"
+        puts ''
+      end
+      sleep(1)
+      puts ' 1 | 2 | 3 '
+      puts ' --------- '
+      puts ' 4 | 5 | 6 '
+      puts ' --------- '
+      puts ' 7 | 8 | 9 '
+
+      winner = true
+
+      if winner == true
+        puts ''
+        puts "Congratulations, #{user_name}... you won the match."
+        puts ''
+      end
       flag = true
     end
 
