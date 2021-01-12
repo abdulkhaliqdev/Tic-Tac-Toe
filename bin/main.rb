@@ -14,8 +14,28 @@ while playing
     puts 'What is your name?'
     user_name = gets.chomp
     puts ''
-    puts 'What symbol do you want to play?'
-    
+    symbol_flag = false
+    while symbol_flag == false
+      puts 'What symbol do you want to play?'
+      puts 'For X symbol -> Type: [ 1 ]'
+      puts 'For O symbol -> Type: [ 2 ]'
+      user_symbol = gets.chomp.to_i
+      if user_symbol == 1 || user_symbol == 2
+        symbol_flag = true
+      else
+        puts "invalid input"
+      end
+    end
+
+    flag = false
+    while flag == false
+      puts ' 1 | 2 | 3 '
+      puts ' --------- '
+      puts ' 4 | 5 | 6 '
+      puts ' --------- '
+      puts ' 7 | 8 | 9 '
+      flag = true
+    end
 
   elsif user == 2
     puts 'You choose multi-player!'
@@ -23,9 +43,36 @@ while playing
     puts 'What is the player 1 name?'
     player_one = gets.chomp
     puts ''
+    symbol_flag = false
+    while symbol_flag == false
+      puts 'What symbol do you want to play?'
+      puts 'For X symbol -> Type: [ 1 ]'
+      puts 'For O symbol -> Type: [ 2 ]'
+      player_one_symbol = gets.chomp.to_i
+      if player_one_symbol == 1 || player_one_symbol == 2
+        symbol_flag = true
+        player_one_symbol = "X" if player_one_symbol == 1
+        player_one_symbol = "O" if player_one_symbol == 2
+      else
+        puts "invalid input"
+      end
+    end
     puts 'What is the player 2 name?'
     player_two = gets.chomp
     puts ''
+    player_two_symbol = 'O' if player_one_symbol == 'X'
+    player_two_symbol = 'X' if player_one_symbol == 'O'
+    puts "your symbol is #{player_two_symbol}"
+    flag = false
+    while flag == false
+      puts ' 1 | 2 | 3 '
+      puts ' --------- '
+      puts ' 4 | 5 | 6 '
+      puts ' --------- '
+      puts ' 7 | 8 | 9 '
+      flag = true
+    end
+
   else
     invalid_input = true
     puts ''
@@ -44,15 +91,7 @@ while playing
       puts ''
       puts 'Invalid input!'
       puts ''
-      playing = false
     end
   end
+
 end
-
-
-
-# puts ' 1 | 2 | 3 '
-# puts ' --------- '
-# puts ' 4 | 5 | 6 '
-# puts ' --------- '
-# puts ' 7 | 8 | 9 '
