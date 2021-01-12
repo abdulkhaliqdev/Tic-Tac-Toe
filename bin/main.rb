@@ -1,4 +1,4 @@
-
+#!/usr/bin/env ruby
 playing = true
 while playing
   invalid_input = false
@@ -13,6 +13,9 @@ while playing
     puts ''
     puts 'What is your name?'
     user_name = gets.chomp
+    puts ''
+    puts 'What symbol do you want to play?'
+    
 
   elsif user == 2
     puts 'You choose multi-player!'
