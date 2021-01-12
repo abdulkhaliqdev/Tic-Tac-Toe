@@ -8,6 +8,7 @@ while playing
   puts 'For single-player -> Type: [ 1 ]'
   puts 'For multi-player -> Type: [ 2 ]'
   user = gets.chomp.to_i
+
   if user == 1
     puts 'You choose single-player!'
     puts ''
@@ -100,7 +101,17 @@ while playing
       puts 'OK, Restarting the game!'
       puts ''
     end
-
   end
-
 end
+
+def winner(user)
+  puts "Congratulations #{user}... you won the match."
+end
+
+def check_winner(a, b, c)
+  if a == b && a == c
+    return true
+  end
+  return false
+end
+
