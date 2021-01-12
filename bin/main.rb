@@ -26,7 +26,7 @@ while playing
       if user_symbol == 1 || user_symbol == 2
         symbol_flag = true
       else
-        puts "invalid input"
+        puts 'invalid input'
       end
     end
 
@@ -57,10 +57,10 @@ while playing
       player_one_symbol = gets.chomp.to_i
       if player_one_symbol == 1 || player_one_symbol == 2
         symbol_flag = true
-        player_one_symbol = "X" if player_one_symbol == 1
-        player_one_symbol = "O" if player_one_symbol == 2
+        player_one_symbol = 'X' if player_one_symbol == 1
+        player_one_symbol = 'O' if player_one_symbol == 2
       else
-        puts "invalid input"
+        puts 'invalid input'
       end
     end
     puts 'What is the player 2 name?'
@@ -81,7 +81,6 @@ while playing
       puts ' 7 | 8 | 9 '
       flag = true
     end
-
   else
     invalid_input = true
     puts ''
@@ -89,7 +88,7 @@ while playing
     puts ''
   end
 
-  if invalid_input == false
+  next if invalid_input == false
     puts 'Do you want to continue playing?'
     puts 'For YES -> Type: [ Y ]'
     puts 'For NO -> Type: [ N ]'
@@ -102,5 +101,4 @@ while playing
       puts ''
     end
   end
-
 end
