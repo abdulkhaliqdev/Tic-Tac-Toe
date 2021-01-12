@@ -14,6 +14,9 @@ while playing
     puts 'What is your name?'
     user_name = gets.chomp
     puts ''
+    puts "Lets get started... #{user_name}!"
+    puts ''
+    sleep(1)
     symbol_flag = false
     while symbol_flag == false
       puts 'What symbol do you want to play?'
@@ -43,6 +46,9 @@ while playing
     puts 'What is the player 1 name?'
     player_one = gets.chomp
     puts ''
+    puts "Lets get started... #{player_one}!"
+    puts ''
+    sleep(1)
     symbol_flag = false
     while symbol_flag == false
       puts 'What symbol do you want to play?'
@@ -60,9 +66,12 @@ while playing
     puts 'What is the player 2 name?'
     player_two = gets.chomp
     puts ''
+    puts "Lets get started... #{player_two}!"
+    puts ''
+    sleep(1)
     player_two_symbol = 'O' if player_one_symbol == 'X'
     player_two_symbol = 'X' if player_one_symbol == 'O'
-    puts "your symbol is #{player_two_symbol}"
+    puts "Player 2 symbol is #{player_two_symbol}"
     flag = false
     while flag == false
       puts ' 1 | 2 | 3 '
@@ -89,7 +98,7 @@ while playing
       playing = false
     else
       puts ''
-      puts 'Invalid input!'
+      puts 'OK, Restarting the game!'
       puts ''
     end
   end
