@@ -2,7 +2,7 @@ AllCops:
   Exclude:
     - "Guardfile"
     - "Rakefile"
-    - "TargetRubyVersion"
+    TargetRubyVersion: 2.7
 
   DisplayCopNames: true
 
