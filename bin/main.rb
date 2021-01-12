@@ -88,7 +88,7 @@ while playing
     puts ''
   end
 
-  next if invalid_input == false
+  if invalid_input == false
     puts 'Do you want to continue playing?'
     puts 'For YES -> Type: [ Y ]'
     puts 'For NO -> Type: [ N ]'
@@ -100,5 +100,7 @@ while playing
       puts 'OK, Restarting the game!'
       puts ''
     end
+
   end
+
 end

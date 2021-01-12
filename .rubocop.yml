@@ -2,7 +2,6 @@ AllCops:
   Exclude:
     - "Guardfile"
     - "Rakefile"
-
   DisplayCopNames: true
 
 Layout/LineLength:
@@ -51,4 +50,6 @@ Style/HashTransformValues:
 Style/MultipleComparison:
   Enabled: false
 Metrics/BlockNesting:
+  Enabled: false
+Style/Next:
   Enabled: false
