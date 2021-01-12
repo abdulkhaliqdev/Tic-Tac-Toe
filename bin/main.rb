@@ -1,4 +1,17 @@
 #!/usr/bin/env ruby
+checks = Array.new([
+  [1,5,9],
+  [3,5,7],
+  [1,2,3],
+  [1,4,7],
+  [7,8,9],
+  [3,6,9],
+  [2,5,8],
+  [4,5,6]
+])
+p_one_moves = Array.new()
+p_two_moves = Array.new()
+
 playing = true
 while playing
   invalid_input = false
@@ -32,13 +45,31 @@ while playing
     end
 
     flag = false
+    player_turn = false
+    wrong_move = false
+    winner = false
+
+    board = Array.new([1, 2, 3, 4, 5, 6, 7, 8, 9])
     while flag == false
-      puts ' 1 | 2 | 3 '
+
+      puts " #{board[0]} | #{board[1]} | #{board[2]} "
       puts ' --------- '
-      puts ' 4 | 5 | 6 '
+      puts " #{board[3]} | #{board[4]} | #{board[5]} "
       puts ' --------- '
-      puts ' 7 | 8 | 9 '
+      puts " #{board[6]} | #{board[7]} | #{board[8]} "
+      if wrong_move == true
+        puts "Invalid input, choose a number between #{board}"
+      end
+      
+      if player_turn == true
+        puts "Its your turn #{user}"
+      end
+
+      
       flag = true
+      if winner == true
+        puts "Congratulations #{user}, you won the match"
+      end
     end
 
   elsif user == 2
@@ -114,4 +145,5 @@ def check_winner(a, b, c)
   end
   return false
 end
+
 
