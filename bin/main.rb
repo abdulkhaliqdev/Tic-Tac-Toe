@@ -100,5 +100,7 @@ while playing
       puts 'OK, Restarting the game!'
       puts ''
     end
+
   end
+
 end
