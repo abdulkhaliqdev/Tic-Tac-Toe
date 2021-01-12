@@ -41,8 +41,10 @@ while playing
       puts ' --------- '
       puts ' 7 | 8 | 9 '
 
-      unless wrong_move == true
+      if wrong_move == true
+        puts ''
         puts "Invalid move! Repeat your movement #{user_name}"
+        puts
       end
 
       player_turn = true
