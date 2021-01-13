@@ -41,25 +41,29 @@ while playing
       puts ' --------- '
       puts ' 7 | 8 | 9 '
 
-      if wrong_move == true
-        puts ''
-        puts "Invalid move! Repeat your movement #{user_name}"
-        puts
-      end
+      # if wrong_move == true
+      #   puts ''
+      #   puts "Invalid move! Repeat your movement #{user_name}"
+      #   puts
+      # end
 
-      player_turn = true
+      # player_turn = true
 
-      if player_turn == true
-        puts ''
-        puts "It's your turn #{user_name}"
-        puts ''
-      end
-      sleep(1)
-      puts ' 1 | 2 | 3 '
-      puts ' --------- '
-      puts ' 4 | 5 | 6 '
-      puts ' --------- '
-      puts ' 7 | 8 | 9 '
+      # if player_turn == true
+      #   puts ''
+      #   puts "It's your turn #{user_name}"
+      #   puts ''
+      # end
+      # sleep(1)
+      # puts ' 1 | 2 | 3 '
+      # puts ' --------- '
+      # puts ' 4 | 5 | 6 '
+      # puts ' --------- '
+      # puts ' 7 | 8 | 9 '
+
+      game = true
+
+      while 
 
       winner = true
 
