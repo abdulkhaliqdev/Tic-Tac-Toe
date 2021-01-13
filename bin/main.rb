@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 playing = true
+board = Array.new([[1,2,3],[4,5,6],[7,8,9]])  
+
 while playing
   invalid_input = false
   puts 'TIC TAC TOE'
@@ -29,15 +31,36 @@ while playing
     end
 
     flag = false
+    player_turn = false
     while flag == false
-      puts ' 1 | 2 | 3 '
-      puts ' --------- '
-      puts ' 4 | 5 | 6 '
-      puts ' --------- '
-      puts ' 7 | 8 | 9 '
+      board.each do |i|
+        j = 0
+        while j < 3
+          print " #{i[j]} "
+          print '|' unless j == 2
+          j += 1
+        end
+        puts "\n-----------"
+      end
+      if player_turn == false
+        puts "#{user}! it is your turn"
+        user_input = gets.chomp.to_i
+        check_move = check_place(user_input)
+        if(check_move == true)
+          i_index, j_index= replace_index(user_symbol)
+          winner_flag = check_winner(user_symbol,i_index,j_index)
+          if(winner_flag == true)
+            winner(user_name)
+            break
+          end
+        else
+          puts 'Invalid Move! Try again.'
+        end
+      else
+        computer
+      end
       flag = true
     end
-
   elsif user == 2
     puts 'You choose multi-player!'
     puts ''
@@ -62,7 +85,7 @@ while playing
     player_two = gets.chomp
     puts ''
     player_two_symbol = 'O' if player_one_symbol == 'X'
-    player_two_symbol = 'X' if player_one_symbol == 'O'name
+    player_two_symbol = 'X' if player_one_symbol == 'O'
     puts "Player 2 symbol is #{player_two_symbol}"
     flag = false
     while flag == false
@@ -95,4 +118,15 @@ while playing
     end
   end
 
+end
+
+def check_winner(a, b, c)
+  if a == b && a == c
+    return true
+  end
+  return false
+end
+
+def check_winner(symbol,i,j)
+  if (i)
 end
