@@ -2,6 +2,9 @@
 playing = true
 board = Array.new([1, 2, 3, 4, 5, 6, 7, 8, 9])
 
+
+
+
 def check_valid_move(user_input, symbol, board)
   return false if user_input.negative? && user_input > 9
 

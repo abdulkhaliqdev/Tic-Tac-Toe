@@ -3,7 +3,7 @@ class Board
     @board = Array.new([1, 2, 3, 4, 5, 6, 7, 8, 9])
   end
 
-  def displayBoard
+  def display_board
     i = 0
     while i < 9
       j = 0
@@ -26,5 +26,9 @@ class Board
       end
       i += 1
     end
+  end
+
+  def reset_board
+    @board = Array.new([1, 2, 3, 4, 5, 6, 7, 8, 9])
   end
 end
