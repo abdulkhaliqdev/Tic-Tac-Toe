@@ -1,9 +1,10 @@
 
 class Board
+
   def initialize
-    @places = [1 => '1', 2 => '2', 3 => '3',
+    @places = {1 => '1', 2 => '2', 3 => '3',
                4 => '4', 5 => '5', 6 => '6',
-               7 => '7', 8 => '8', 9 => '9']
+               7 => '7', 8 => '8', 9 => '9'}
   end
 
   def draw_board
@@ -13,10 +14,7 @@ class Board
     puts '-----------'
     puts "#{@places[7]} | #{@places[8]} | #{@places[9]} "
     puts '-----------'
+    puts @places
   end
 
-  puts @places[1]
 end
-
-board = Board.new
-puts  board
