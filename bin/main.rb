@@ -103,15 +103,15 @@ while playing
         puts "\n-----------"
       end
       if turn == false
-        flag = play_turn(user_name, user_symbol, board)
+        play_turn(user_name, user_symbol, board)
         turn = true
       else
         puts "Computer turn"
-        flag = computer_play(computer_symbol, board)
+        computer_play(computer_symbol, board)
         turn = false
       end
       count += 1
-      if count == 2
+      if count == 9
         flag = true
       end
     end
@@ -163,14 +163,14 @@ while playing
         puts "\n-----------"
       end
       if turn == false
-        flag = play_turn(player_one , player_one_symbol, board)
+        play_turn(player_one , player_one_symbol, board)
         turn = true
       else
-        flag = play_turn(player_two , player_two_symbol, board)
+        play_turn(player_two , player_two_symbol, board)
         turn = false
       end
       count += 1
-      if count == 2
+      if count == 9
         flag = true
       end
     end
