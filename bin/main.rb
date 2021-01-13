@@ -3,62 +3,51 @@ playing = true
 board = Array.new([1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 def check_valid_move(user_input, symbol, board)
-  if user_input < 0 && user_input > 9
-    return false
-  end
+  return false if user_input.negative? && user_input > 9
 
-  board.each do |i|
-    i = 0
-    while i < 9
-      if board[i] == user_input
-        board[i] = symbol
-        return true
-      end
-      i += 1
+  i = 0
+  while i < 9
+    if board[i] == user_input
+      board[i] = symbol
+      return true
     end
+    i += 1
   end
-  return false
+  false
 end
 
 def play_turn(user, symbol, board)
   wrong_move = false
   player_turns = false
   while player_turns == false
-    if wrong_move == false
+    case wrong_move
+    when false
       puts "#{user}! it is your turn"
-      user_input = gets.chomp.to_i
-      if check_valid_move(user_input, symbol, board)
-        player_turns = true
-      else
-        wrong_move = true
-      end
-    else wrong_move == true
+    when true
       puts "#{user}! Wrong Move Tey again!"
-      user_input = gets.chomp.to_i
-      if check_valid_move(user_input, symbol, board)
-        player_turns = true
-      else
-        wrong_move = true
-      end
+    end
+    user_input = gets.chomp.to_i
+    check_valid = check_valid_move(user_input, symbol, board)
+    if check_valid
+      player_turns = true
+    else
+      wrong_move = true
     end
   end
-  return false
+  false
 end
 
 def computer_play(symbol, board)
-  puts "computer"
-  puts "#{symbol}"
   computer_flag = false
   i = 0
   while computer_flag == false
-    if check_valid_move(i, symbol, board)
-      puts "hello board"
-      computer_flag = true
-    end
+    valid = check_valid_move(i, symbol, board)
+    computer_flag = true if valid
     i += 1
   end
-  return false
+  false
 end
+
 while playing
   invalid_input = false
   puts 'TIC TAC TOE'
@@ -67,7 +56,8 @@ while playing
   puts 'For single-player -> Type: [ 1 ]'
   puts 'For multi-player -> Type: [ 2 ]'
   user = gets.chomp.to_i
-  if user == 1
+  case user
+  when 1
     puts 'You choose single-player!'
     puts ''
     puts 'What is your name?'
@@ -116,12 +106,11 @@ while playing
         turn = false
       end
       count += 1
-      if count == 9
-        flag = true
-      end
+      flag = true if count == 9
     end
     puts 'Great! you are the Winner of this game'
-  elsif user == 2
+    board = Array.new([1, 2, 3, 4, 5, 6, 7, 8, 9])
+  when 2
     puts 'You choose multi-player!'
     puts ''
     puts 'What is the player 1 name?'
@@ -155,7 +144,7 @@ while playing
     puts "Player 2 symbol is #{player_two_symbol}"
     flag = false
     count = 0
-    turn =false
+    turn = false
     # Multi-player
     while flag == false
       i = 0
@@ -170,18 +159,17 @@ while playing
         puts "\n-----------"
       end
       if turn == false
-        play_turn(player_one , player_one_symbol, board)
+        play_turn(player_one, player_one_symbol, board)
         turn = true
       else
-        play_turn(player_two , player_two_symbol, board)
+        play_turn(player_two, player_two_symbol, board)
         turn = false
       end
       count += 1
-      if count == 9
-        flag = true
-      end
+      flag = true if count == 9
     end
     puts "#{player_two}! Winner of  this game"
+    board = Array.new([1, 2, 3, 4, 5, 6, 7, 8, 9])
   else
     invalid_input = true
     puts ''
