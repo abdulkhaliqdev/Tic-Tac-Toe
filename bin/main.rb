@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 playing = true
-board = Array.new([[1,2,3],[4,5,6],[7,8,9]])
+board = Array.new([1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 def check_valid_move(user_input, symbol, board)
   if user_input < 0 && user_input > 9
@@ -9,26 +9,22 @@ def check_valid_move(user_input, symbol, board)
 
   board.each do |i|
     i = 0
-    j = 0
-    while i < 3
-      while j < 3
-        if board[i][j] != 'X' && board[i][j] != 'O'
-          board[i][j] = symbol
-          return true
-        end
-        j += 1
+    while i < 9
+      if board[i] == user_input
+        board[i] = symbol
+        return true
       end
       i += 1
     end
   end
   return false
 end
-def play_turn(user,symbol,board)
+
+def play_turn(user, symbol, board)
   wrong_move = false
   player_turns = false
-  winner = false
   while player_turns == false
-    if  player_turns == false && wrong_move == false
+    if wrong_move == false
       puts "#{user}! it is your turn"
       user_input = gets.chomp.to_i
       if check_valid_move(user_input, symbol, board)
@@ -48,13 +44,18 @@ def play_turn(user,symbol,board)
   end
   return false
 end
+
 def computer_play(symbol, board)
+  puts "computer"
+  puts "#{symbol}"
   computer_flag = false
-  while computer_flag == false 
-    move = rand 1..9
-    if check_valid_move(move, symbol, board)
-      return true
+  i = 0
+  while computer_flag == false
+    if check_valid_move(i, symbol, board)
+      puts "hello board"
+      computer_flag = true
     end
+    i += 1
   end
   return false
 end
@@ -83,6 +84,8 @@ while playing
       user_symbol = gets.chomp.to_i
       if user_symbol == 1 || user_symbol == 2
         symbol_flag = true
+        user_symbol = 'X' if user_symbol == 1
+        user_symbol = 'O' if user_symbol == 2
       else
         puts 'invalid input'
       end
@@ -93,12 +96,14 @@ while playing
     turn = false
     count = 0
     while flag == false
-      board.each do |i|
+      i = 0
+      while i < 9
         j = 0
         while j < 3
-          print " #{i[j]} "
+          print " #{board[i]} "
           print '|' unless j == 2
           j += 1
+          i += 1
         end
         puts "\n-----------"
       end
@@ -106,16 +111,16 @@ while playing
         flag = play_turn(user_name, user_symbol, board)
         turn = true
       else
-        puts "Computer turn"
+        puts 'Computer turn'
         flag = computer_play(computer_symbol, board)
         turn = false
       end
       count += 1
-      if count == 2
+      if count == 9
         flag = true
       end
     end
-    puts "Great! you are the Winner of this game"
+    puts 'Great! you are the Winner of this game'
   elsif user == 2
     puts 'You choose multi-player!'
     puts ''
@@ -153,12 +158,14 @@ while playing
     turn =false
     # Multi-player
     while flag == false
-      board.each do |i|
+      i = 0
+      while i < 9
         j = 0
         while j < 3
-          print " #{i[j]} "
+          print " #{board[i]} "
           print '|' unless j == 2
           j += 1
+          i += 1
         end
         puts "\n-----------"
       end
@@ -170,7 +177,7 @@ while playing
         turn = false
       end
       count += 1
-      if count == 2
+      if count == 9
         flag = true
       end
     end
