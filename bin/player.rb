@@ -1,1 +1,3 @@
-puts 'player.rb'
+class Player
+
+end
