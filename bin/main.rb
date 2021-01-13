@@ -1,5 +1,63 @@
 #!/usr/bin/env ruby
 playing = true
+board = Array.new([[1,2,3],[4,5,6],[7,8,9]])
+
+def check_valid_move(user_input, symbol, board)
+  if user_input < 0 && user_input > 9
+    return false
+  end
+
+  board.each do |i|
+    i = 0
+    j = 0
+    while i < 3
+      while j < 3
+        if board[i][j] != 'X' && board[i][j] != 'O'
+          board[i][j] = symbol
+          return true
+        end
+        j += 1
+      end
+      i += 1
+    end
+  end
+  return false
+end
+def play_turn(user,symbol,board)
+  wrong_move = false
+  player_turns = false
+  winner = false
+  while player_turns == false
+    if  player_turns == false && wrong_move == false
+      puts "#{user}! it is your turn"
+      user_input = gets.chomp.to_i
+      if check_valid_move(user_input, symbol, board)
+        player_turns = true
+      else
+        wrong_move = true
+      end
+    else wrong_move == true
+      puts "#{user}! Wrong Move Tey again!"
+      user_input = gets.chomp.to_i
+      if check_valid_move(user_input, symbol, board)
+        player_turns = true
+      else
+        wrong_move = true
+      end
+    end
+  end
+  return false
+end
+def computer_play(symbol, board)
+  computer_flag = false
+  while computer_flag == false 
+    move = rand 1..9
+    if check_valid_move(move, symbol, board)
+      return true
+    end
+  end
+  return false
+end
 while playing
   invalid_input = false
   puts 'TIC TAC TOE'
@@ -29,52 +87,35 @@ while playing
         puts 'invalid input'
       end
     end
-
+    computer_symbol = 'O' if user_symbol == 'X'
+    computer_symbol = 'X' if user_symbol == 'O'
     flag = false
-    wrong_move = false
-    player_turn = false
-    winner = false
+    turn = false
+    count = 0
     while flag == false
-      puts ' 1 | 2 | 3 '
-      puts ' --------- '
-      puts ' 4 | 5 | 6 '
-      puts ' --------- '
-      puts ' 7 | 8 | 9 '
-
-      # if wrong_move == true
-      #   puts ''
-      #   puts "Invalid move! Repeat your movement #{user_name}"
-      #   puts
-      # end
-
-      # player_turn = true
-
-      # if player_turn == true
-      #   puts ''
-      #   puts "It's your turn #{user_name}"
-      #   puts ''
-      # end
-      # sleep(1)
-      # puts ' 1 | 2 | 3 '
-      # puts ' --------- '
-      # puts ' 4 | 5 | 6 '
-      # puts ' --------- '
-      # puts ' 7 | 8 | 9 '
-
-      game = true
-
-      while 
-
-      winner = true
-
-      if winner == true
-        puts ''
-        puts "Congratulations, #{user_name}... you won the match."
-        puts ''
+      board.each do |i|
+        j = 0
+        while j < 3
+          print " #{i[j]} "
+          print '|' unless j == 2
+          j += 1
+        end
+        puts "\n-----------"
       end
-      flag = true
+      if turn == false
+        flag = play_turn(user_name, user_symbol, board)
+        turn = true
+      else
+        puts "Computer turn"
+        flag = computer_play(computer_symbol, board)
+        turn = false
+      end
+      count += 1
+      if count == 2
+        flag = true
+      end
     end
-
+    puts "Great! you are the Winner of this game"
   elsif user == 2
     puts 'You choose multi-player!'
     puts ''
@@ -108,14 +149,32 @@ while playing
     player_two_symbol = 'X' if player_one_symbol == 'O'
     puts "Player 2 symbol is #{player_two_symbol}"
     flag = false
+    count = 0
+    turn =false
+    # Multi-player
     while flag == false
-      puts ' 1 | 2 | 3 '
-      puts ' --------- '
-      puts ' 4 | 5 | 6 '
-      puts ' --------- '
-      puts ' 7 | 8 | 9 '
-      flag = true
+      board.each do |i|
+        j = 0
+        while j < 3
+          print " #{i[j]} "
+          print '|' unless j == 2
+          j += 1
+        end
+        puts "\n-----------"
+      end
+      if turn == false
+        flag = play_turn(player_one , player_one_symbol, board)
+        turn = true
+      else
+        flag = play_turn(player_two , player_two_symbol, board)
+        turn = false
+      end
+      count += 1
+      if count == 2
+        flag = true
+      end
     end
+    puts "#{player_two}! Winner of  this game"
   else
     invalid_input = true
     puts ''
