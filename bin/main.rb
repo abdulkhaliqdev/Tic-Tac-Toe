@@ -90,6 +90,7 @@ while playing
         if gamelogic.winner?(board)
           flag = true
           puts ''
+          display_board(board)
           puts "You are the winner #{player.name}!!!"
           puts ''
         end
@@ -102,6 +103,7 @@ while playing
         if gamelogic.winner?(board)
           flag = true
           puts ''
+          display_board(board)
           puts 'Computer is the winner!!!'
           puts ''
         end
@@ -111,6 +113,7 @@ while playing
       if count == 9 && flag == false
         flag = true
         puts ''
+        display_board(board)
         puts "It's a Draw!"
         puts ''
       end
@@ -150,7 +153,6 @@ while playing
     sleep(1)
     player2.symbol = 'O' if player1.symbol == 'X'
     player2.symbol = 'X' if player1.symbol == 'O'
-    puts player2.symbol
     puts "Player 2 symbol is #{player2.symbol}"
     flag = false
     count = 0
@@ -165,6 +167,7 @@ while playing
         if gamelogic.winner?(board)
           flag = true
           puts ''
+          display_board(board)
           puts "#{player1.name} is the winner!!!"
           puts ''
         end
@@ -175,6 +178,7 @@ while playing
         if gamelogic.winner?(board)
           flag = true
           puts ''
+          display_board(board)
           puts "#{player2.name} is the winner!!!"
           puts ''
         end
@@ -184,6 +188,7 @@ while playing
       if count == 9 && flag == false
         flag = true
         puts ''
+        display_board(board)
         puts "It's a draw!"
         puts ''
       end
