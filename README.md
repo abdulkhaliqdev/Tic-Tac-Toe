@@ -3,14 +3,14 @@
 
 > This is a script to run Tic Tac Toe on your terminal.
 
-![screenshot](./app_screenshot.png)
+![screenshot](./app_screenshot.png) gif
 
 ## Game Rules
 
-Tic Tac Toe consists in a 3x3 board and two players.
-Players choose between X and O as their symbol to play.
-Players take turns to play their symbols in a empty cell.
-The first player to fill a entire row, column or diagonal wins.
+Tic Tac Toe consists in a 3x3 board and two players.<br>
+Players choose between X and O as their symbol to play.<br>
+Players take turns to play their symbols in a empty cell.<br>
+The first player to fill a entire row, column or diagonal wins.<br>
 If no player fills it and the board is full it's a draw.
 
 ## Built With
@@ -21,7 +21,7 @@ If no player fills it and the board is full it's a draw.
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](https://livedemo.com) repl.it button
 
 ## To get a local copy up and running follow these simple example steps.
 
@@ -31,12 +31,12 @@ If no player fills it and the board is full it's a draw.
 
 ### Setup
 
-- Donwload the code or [clone](https://github.com/abdulkhaliqdev/Tic-Tac-Toe/tree/main) it.
+- Download the code or [clone](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository) it.
 - Navigate through the terminal to where you download/clone it. You can use the command `cd folder` on windows.
 
 ### Usage
 
-- When you are in the `Tic-Tac-Toe` folder, you can type `bin/main.rb` to run the executable.
+- When you are in the `/Tic-Tac-Toe` folder, you can type `bin/main.rb` to run the executable and follow the instructions in the terminal to play the game.
 
 ## Authors
 
