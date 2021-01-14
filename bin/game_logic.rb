@@ -19,10 +19,6 @@ class GameLogic < Board
     return true if board.equal?(0, 4, 8)
 
     return true if board.equal?(2, 4, 6)
-
-    return true if board.equal?(3, 4, 5)
-
-    return true if board.equal?(1, 4, 7)
   end
 
   def winner?(board)

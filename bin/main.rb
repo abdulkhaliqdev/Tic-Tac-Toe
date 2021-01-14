@@ -67,23 +67,41 @@ while playing
     count = 0
     player = Player.new(user_name, user_symbol)
     computer = Computer.new
+    gamelogic = GameLogic.new
+    board.display_board
     while flag == false
-      board.display_board
       if turn == false
         input = play_turn(player, board)
         board.replace(input, user_symbol)
+        if gamelogic.winner?(board)
+          flag = true
+          puts ''
+          puts 'You are the winner!!!'
+          puts ''
+        end
         turn = true
       else
         puts 'Computer turn'
         computer_input = computer.computer_play(player, board)
         board.replace(computer_input, computer_symbol)
+        if gamelogic.winner?(board)
+          flag = true
+          puts ''
+          puts 'Computer is the winner!!!'
+          puts ''
+        end
         turn = false
       end
       count += 1
-      flag = true if count == 9
+      if count == 9 && flag == false
+        flag = true
+        puts ''
+        puts "It's a draw!"
+        puts ''
+      end
+      board.display_board
     end
-    puts 'Great! you are the Winner of this game'
-    board = Array.new([1, 2, 3, 4, 5, 6, 7, 8, 9])
+    board.reset_board
   when 2
     puts 'You choose multi-player!'
     puts ''
@@ -123,26 +141,40 @@ while playing
     player2 = Player.new(player_two,player_two_symbol)
     gamelogic = GameLogic.new
     # Multi-player
+    board.display_board
+    
     while flag == false
-      board.display_board
       if turn == false
         input = play_turn(player1, board)
         board.replace(input, player1.symbol)
-        num = gamelogic.winner?(board)
-        puts 'player one !!!!!!!!!!!!winner' if num
+        if gamelogic.winner?(board)
+          flag = true
+          puts ''
+          puts 'Player one is the winner!!!'
+          puts ''
+        end
         turn = true
       else
         input = play_turn(player2, board)
         board.replace(input, player2.symbol)
-        num = gamelogic.winner?(board)
-        puts 'player one !!!!!!!!!!!!winner' if num
+        if gamelogic.winner?(board)
+          flag = true
+          puts ''
+          puts 'Player two is the winner!!!'
+          puts ''
+        end
         turn = false
       end
       count += 1
-      flag = true if count == 9
+      if count == 9 && flag == false
+        flag = true
+        puts ''
+        puts "It's a draw!"
+        puts ''
+      end
+      board.display_board
     end
-    puts "#{player_two}! Winner of  this game"
-    board = Array.new([1, 2, 3, 4, 5, 6, 7, 8, 9])
+    board.reset_board
   else
     invalid_input = true
     puts ''
