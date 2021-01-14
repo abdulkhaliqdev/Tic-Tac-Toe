@@ -1,7 +1,7 @@
 
 # TIC TAC TOE
 
-> This is a script to run Tic Tac T oe on your terminal.
+> This is a script to run Tic Tac Toe on your terminal.
 
 ![screenshot](./app_screenshot.png)
 
@@ -31,15 +31,12 @@ If no player fills it and the board is full it's a draw.
 
 ### Setup
 
-
-
-### Install
-
-
+- Donwload the code or [clone](https://github.com/abdulkhaliqdev/Tic-Tac-Toe/tree/main) it.
+- Navigate through the terminal to where you download/clone it. You can use the command `cd folder` on windows.
 
 ### Usage
 
-
+- When you are in the `Tic-Tac-Toe` folder, you can type `bin/main.rb` to run the executable.
 
 ## Authors
 
