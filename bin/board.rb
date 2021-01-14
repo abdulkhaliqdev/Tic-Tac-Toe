@@ -5,6 +5,7 @@ class Board
   end
 
   def display_board
+    puts ''
     i = 0
     while i < 9
       j = 0
@@ -16,6 +17,7 @@ class Board
       end
       puts "\n-----------"
     end
+    puts ''
   end
 
   def replace(destination, source)

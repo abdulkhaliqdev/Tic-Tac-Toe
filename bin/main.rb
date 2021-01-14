@@ -76,7 +76,7 @@ while playing
         if gamelogic.winner?(board)
           flag = true
           puts ''
-          puts 'You are the winner!!!'
+          puts "You are the winner #{player.name}!!!"
           puts ''
         end
         turn = true
@@ -84,6 +84,7 @@ while playing
         puts 'Computer turn'
         computer_input = computer.computer_play(player, board)
         board.replace(computer_input, computer_symbol)
+        sleep(1)
         if gamelogic.winner?(board)
           flag = true
           puts ''
@@ -150,7 +151,7 @@ while playing
         if gamelogic.winner?(board)
           flag = true
           puts ''
-          puts 'Player one is the winner!!!'
+          puts "#{player1.name} is the winner!!!"
           puts ''
         end
         turn = true
@@ -160,7 +161,7 @@ while playing
         if gamelogic.winner?(board)
           flag = true
           puts ''
-          puts 'Player two is the winner!!!'
+          puts "#{player2.name} is the winner!!!"
           puts ''
         end
         turn = false
