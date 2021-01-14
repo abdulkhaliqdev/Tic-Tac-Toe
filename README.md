@@ -1,7 +1,7 @@
 
 # TIC TAC TOE
 
-> This is a script to run Tic Tac Toe on your terminal.
+> This is a script to run Tic Tac Toe on your terminal using ruby.
 
 ![screenshot](./app_screenshot.png) gif
 
