@@ -21,7 +21,10 @@ If no player fills it and the board is full it's a draw.
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com) repl.it button
+|run on repl.it|_
+
+.. |run on repl.it| image:: https://repl.it/badge/github/@AbdulKhaliq1/Tic-Tac-Toe#main.rb
+.. _run on repl.it: https://repl.it/github/@AbdulKhaliq1/Tic-Tac-Toe#main.rb
 
 ## To get a local copy up and running follow these simple example steps.
 
