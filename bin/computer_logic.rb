@@ -5,6 +5,7 @@ class Computer
     while computer_flag == false
       valid = player.check_valid_move(i, board)
       return i if valid
+
       i += 1
     end
     false

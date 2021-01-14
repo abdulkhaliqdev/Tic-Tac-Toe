@@ -19,11 +19,9 @@ def play_turn(user, board)
     end
     user_input = gets.chomp.to_i
     check_valid = user.check_valid_move(user_input, board)
-    if check_valid
-      return user_input
-    else
-      wrong_move = true
-    end
+    return user_input if check_valid
+
+    wrong_move = true unless check_valid
   end
   false
 end
@@ -139,7 +137,7 @@ while playing
     count = 0
     turn = false
     player1 = Player.new(player_one, player_one_symbol)
-    player2 = Player.new(player_two,player_two_symbol)
+    player2 = Player.new(player_two, player_two_symbol)
     gamelogic = GameLogic.new
     # Multi-player
     board.display_board
