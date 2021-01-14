@@ -148,8 +148,9 @@ while playing
     puts "Lets get started... #{player2.name}!"
     puts ''
     sleep(1)
-    player2.symbol = 'O' if player2.symbol == 'X'
-    player2.symbol = 'X' if player2.symbol == 'O'
+    player2.symbol = 'O' if player1.symbol == 'X'
+    player2.symbol = 'X' if player1.symbol == 'O'
+    puts player2.symbol
     puts "Player 2 symbol is #{player2.symbol}"
     flag = false
     count = 0
