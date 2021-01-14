@@ -25,10 +25,6 @@ You can run it on [Repl.it](https://repl.it/@AbdulKhaliq1/Tic-Tac-Toe#main.rb)!
 
 ## To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
-
-
-
 ### Setup
 
 - Download the code or [clone](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository) it.
