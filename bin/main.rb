@@ -7,6 +7,22 @@ require_relative '../lib/game_logic'
 playing = true
 board = Board.new
 
+def display_board(board)
+  puts ''
+  i = 0
+  while i < 9
+    j = 0
+    while j < 3
+      print " #{board.at(i)} "
+      print '|' unless j == 2
+      j += 1
+      i += 1
+    end
+    puts "\n-----------"
+  end
+  puts ''
+end
+
 def play_turn(user, board)
   wrong_move = false
   player_turns = false
@@ -66,7 +82,7 @@ while playing
     player = Player.new(user_name, user_symbol)
     computer = Computer.new
     gamelogic = GameLogic.new
-    board.display_board
+    display_board(board)
     while flag == false
       if turn == false
         input = play_turn(player, board)
@@ -98,7 +114,7 @@ while playing
         puts "It's a draw!"
         puts ''
       end
-      board.display_board
+      display_board(board) if flag == false
     end
     board.reset_board
   when 2
@@ -140,7 +156,7 @@ while playing
     player2 = Player.new(player_two, player_two_symbol)
     gamelogic = GameLogic.new
     # Multi-player
-    board.display_board
+    display_board(board)
     while flag == false
       if turn == false
         input = play_turn(player1, board)
@@ -170,7 +186,7 @@ while playing
         puts "It's a draw!"
         puts ''
       end
-      board.display_board
+      display_board(board) if flag == false
     end
     board.reset_board
   else
