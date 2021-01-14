@@ -141,7 +141,6 @@ while playing
     gamelogic = GameLogic.new
     # Multi-player
     board.display_board
-    
     while flag == false
       if turn == false
         input = play_turn(player1, board)
