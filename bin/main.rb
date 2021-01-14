@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
-require_relative 'board'
-require_relative 'player'
-require_relative 'computer_logic'
-require_relative 'game_logic'
+require_relative '../lib/board'
+require_relative '../lib/player'
+require_relative '../lib/computer_logic'
+require_relative '../lib/game_logic'
 
 playing = true
 board = Board.new
