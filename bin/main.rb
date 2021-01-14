@@ -13,7 +13,7 @@ def display_board(board)
   while i < 9
     j = 0
     while j < 3
-      print " #{board.at(i)} "
+      print " #{board.board[i]} "
       print '|' unless j == 2
       j += 1
       i += 1
@@ -52,12 +52,13 @@ while playing
   user = gets.chomp.to_i
   case user
   when 1
+    player = Player.new
     puts 'You choose single-player!'
     puts ''
     puts 'What is your name?'
-    user_name = gets.chomp
+    player.name = gets.chomp
     puts ''
-    puts "Lets get started... #{user_name}!"
+    puts "Lets get started... #{player.name}!"
     puts ''
     sleep(1)
     symbol_flag = false
@@ -65,28 +66,27 @@ while playing
       puts 'What symbol do you want to play?'
       puts 'For X symbol -> Type: [ 1 ]'
       puts 'For O symbol -> Type: [ 2 ]'
-      user_symbol = gets.chomp.to_i
-      if user_symbol == 1 || user_symbol == 2
+      player.symbol = gets.chomp.to_i
+      if player.symbol == 1 || player.symbol == 2
         symbol_flag = true
-        user_symbol = 'X' if user_symbol == 1
-        user_symbol = 'O' if user_symbol == 2
+        player.symbol = 'X' if player.symbol == 1
+        player.symbol = 'O' if player.symbol == 2
       else
         puts 'invalid input'
       end
     end
-    computer_symbol = 'O' if user_symbol == 'X'
-    computer_symbol = 'X' if user_symbol == 'O'
+    computer_symbol = 'O' if player.symbol == 'X'
+    computer_symbol = 'X' if player.symbol == 'O'
     flag = false
     turn = false
     count = 0
-    player = Player.new(user_name, user_symbol)
     computer = Computer.new
     gamelogic = GameLogic.new
     display_board(board)
     while flag == false
       if turn == false
         input = play_turn(player, board)
-        board.replace(input, user_symbol)
+        board.replace(input, player.symbol)
         if gamelogic.winner?(board)
           flag = true
           puts ''
@@ -111,19 +111,21 @@ while playing
       if count == 9 && flag == false
         flag = true
         puts ''
-        puts "It's a draw!"
+        puts "It's a Draw!"
         puts ''
       end
       display_board(board) if flag == false
     end
     board.reset_board
   when 2
+    player1 = Player.new
+    player2 = Player.new
     puts 'You choose multi-player!'
     puts ''
     puts 'What is the player 1 name?'
-    player_one = gets.chomp
+    player1.name = gets.chomp
     puts ''
-    puts "Lets get started... #{player_one}!"
+    puts "Lets get started... #{player1.name}!"
     puts ''
     sleep(1)
     symbol_flag = false
@@ -131,29 +133,27 @@ while playing
       puts 'What symbol do you want to play?'
       puts 'For X symbol -> Type: [ 1 ]'
       puts 'For O symbol -> Type: [ 2 ]'
-      player_one_symbol = gets.chomp.to_i
-      if player_one_symbol == 1 || player_one_symbol == 2
+      player1.symbol = gets.chomp.to_i
+      if player1.symbol == 1 || player1.symbol == 2
         symbol_flag = true
-        player_one_symbol = 'X' if player_one_symbol == 1
-        player_one_symbol = 'O' if player_one_symbol == 2
+        player1.symbol = 'X' if player1.symbol == 1
+        player1.symbol = 'O' if player1.symbol == 2
       else
         puts 'invalid input'
       end
     end
     puts 'What is the player 2 name?'
-    player_two = gets.chomp
+    player2.name = gets.chomp
     puts ''
-    puts "Lets get started... #{player_two}!"
+    puts "Lets get started... #{player2.name}!"
     puts ''
     sleep(1)
-    player_two_symbol = 'O' if player_one_symbol == 'X'
-    player_two_symbol = 'X' if player_one_symbol == 'O'
-    puts "Player 2 symbol is #{player_two_symbol}"
+    player2.symbol = 'O' if player2.symbol == 'X'
+    player2.symbol = 'X' if player2.symbol == 'O'
+    puts "Player 2 symbol is #{player2.symbol}"
     flag = false
     count = 0
     turn = false
-    player1 = Player.new(player_one, player_one_symbol)
-    player2 = Player.new(player_two, player_two_symbol)
     gamelogic = GameLogic.new
     # Multi-player
     display_board(board)
