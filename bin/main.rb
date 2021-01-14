@@ -1,10 +1,11 @@
 #!/usr/bin/env ruby
+require_relative 'board'
+require_relative 'player'
+require_relative 'computer_logic'
+require_relative 'game_logic'
+
 playing = true
-board = Array.new([1, 2, 3, 4, 5, 6, 7, 8, 9])
-
-
-
-
+board = Board.new
 def check_valid_move(user_input, symbol, board)
   return false if user_input.negative? && user_input > 9
 
@@ -12,6 +13,7 @@ def check_valid_move(user_input, symbol, board)
   while i < 9
     if board[i] == user_input
       board[i] = symbol
+
       return true
     end
     i += 1
@@ -89,19 +91,10 @@ while playing
     turn = false
     count = 0
     while flag == false
-      i = 0
-      while i < 9
-        j = 0
-        while j < 3
-          print " #{board[i]} "
-          print '|' unless j == 2
-          j += 1
-          i += 1
-        end
-        puts "\n-----------"
-      end
+      board.display_board
       if turn == false
-        play_turn(user_name, user_symbol, board)
+        input = play_turn(user_name, user_symbol, board)
+        board.replace(input, user_symbol)
         turn = true
       else
         puts 'Computer turn'
