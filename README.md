@@ -3,7 +3,7 @@
 
 > This is a script to run Tic Tac Toe on your terminal using ruby.
 
-![GIF](./screenrecord.gif) 
+![](./screenrecord.gif) 
 
 ## Game Rules
 
