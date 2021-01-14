@@ -6,49 +6,24 @@ require_relative 'game_logic'
 
 playing = true
 board = Board.new
-def check_valid_move(user_input, symbol, board)
-  return false if user_input.negative? && user_input > 9
 
-  i = 0
-  while i < 9
-    if board[i] == user_input
-      board[i] = symbol
-
-      return true
-    end
-    i += 1
-  end
-  false
-end
-
-def play_turn(user, symbol, board)
+def play_turn(user, board)
   wrong_move = false
   player_turns = false
   while player_turns == false
     case wrong_move
     when false
-      puts "#{user}! it is your turn"
+      puts "#{user.name}! it is your turn"
     when true
-      puts "#{user}! Wrong Move Tey again!"
+      puts "#{user.name}! Wrong Move Tey again!"
     end
     user_input = gets.chomp.to_i
-    check_valid = check_valid_move(user_input, symbol, board)
+    check_valid = user.check_valid_move(user_input, board)
     if check_valid
-      player_turns = true
+      return user_input
     else
       wrong_move = true
     end
-  end
-  false
-end
-
-def computer_play(symbol, board)
-  computer_flag = false
-  i = 0
-  while computer_flag == false
-    valid = check_valid_move(i, symbol, board)
-    computer_flag = true if valid
-    i += 1
   end
   false
 end
@@ -90,15 +65,18 @@ while playing
     flag = false
     turn = false
     count = 0
+    player = Player.new(user_name, user_symbol)
+    computer = Computer.new
     while flag == false
       board.display_board
       if turn == false
-        input = play_turn(user_name, user_symbol, board)
+        input = play_turn(player, board)
         board.replace(input, user_symbol)
         turn = true
       else
         puts 'Computer turn'
-        flag = computer_play(computer_symbol, board)
+        computer_input = computer.computer_play(player, board)
+        board.replace(computer_input, computer_symbol)
         turn = false
       end
       count += 1
@@ -141,24 +119,18 @@ while playing
     flag = false
     count = 0
     turn = false
+    player1 = Player.new(player_one, player_one_symbol)
+    player2 = Player.new(player_two,player_two_symbol)
     # Multi-player
     while flag == false
-      i = 0
-      while i < 9
-        j = 0
-        while j < 3
-          print " #{board[i]} "
-          print '|' unless j == 2
-          j += 1
-          i += 1
-        end
-        puts "\n-----------"
-      end
+      board.display_board
       if turn == false
-        play_turn(player_one, player_one_symbol, board)
+        input = play_turn(player1, board)
+        board.replace(input, player1.symbol)
         turn = true
       else
-        play_turn(player_two, player_two_symbol, board)
+        input = play_turn(player2, board)
+        board.replace(input, player2.symbol)
         turn = false
       end
       count += 1
