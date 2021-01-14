@@ -1,4 +1,5 @@
 class Board
+  attr_accessor :board
   def initialize
     @board = Array.new([1, 2, 3, 4, 5, 6, 7, 8, 9])
   end
@@ -40,5 +41,9 @@ class Board
       i += 1
     end
     false
+  end
+
+  def equal?(first, second, third)
+    return true if board[first] == board[second] && board[second] == board[third]
   end
 end

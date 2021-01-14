@@ -121,16 +121,21 @@ while playing
     turn = false
     player1 = Player.new(player_one, player_one_symbol)
     player2 = Player.new(player_two,player_two_symbol)
+    gamelogic = GameLogic.new
     # Multi-player
     while flag == false
       board.display_board
       if turn == false
         input = play_turn(player1, board)
         board.replace(input, player1.symbol)
+        num = gamelogic.winner?(board)
+        puts 'player one !!!!!!!!!!!!winner' if num
         turn = true
       else
         input = play_turn(player2, board)
         board.replace(input, player2.symbol)
+        num = gamelogic.winner?(board)
+        puts 'player one !!!!!!!!!!!!winner' if num
         turn = false
       end
       count += 1
