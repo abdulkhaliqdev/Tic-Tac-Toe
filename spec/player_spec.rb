@@ -1,4 +1,4 @@
-# spec/calculator_spec.rb
+# spec/player_spec.rb
 
 require './lib/player'
 

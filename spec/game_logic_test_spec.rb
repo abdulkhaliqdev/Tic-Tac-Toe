@@ -1,4 +1,4 @@
-# spec/calculator_spec.rbc
+# spec/game_logic_test_spec.rbc
 
 require '../lib/board'
 require '../lib/game_logic'
