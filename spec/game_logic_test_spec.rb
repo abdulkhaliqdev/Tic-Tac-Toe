@@ -1,4 +1,5 @@
-# game_logic test with rspec
+# spec/calculator_spec.rbc
+
 require '../lib/board'
 require '../lib/game_logic'
 describe GameLogic do
