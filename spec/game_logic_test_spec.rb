@@ -1,7 +1,8 @@
 # spec/game_logic_test_spec.rbc
 
-require '../lib/board'
-require '../lib/game_logic'
+require_relative '../lib/board'
+require_relative '../lib/game_logic'
+
 describe GameLogic do
   gamelogic = GameLogic.new
   board = Board.new
